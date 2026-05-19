@@ -21,18 +21,31 @@ jobs:
               echo "ENV = ${{vars.ENV_VAR}}"
               echo "WORKFLOW = $WORKFLOW_VAR"
 
-      - name: print contexts
-        run: |
-             echo "${{ toJSON(github) }}"
-             echo "${{ toJSON(env) }}"
-             echo "${{ toJSON(vars) }}"
-             echo "${{ toJSON(job) }}"
-             echo "${{ toJSON(steps) }}"
-             echo "${{ toJSON(runner) }}"
-             echo "${{ toJSON(secrets) }}"
-             echo "${{ toJSON(strategy) }}"
-             echo "${{ toJSON(matrix) }}"
-             echo "${{ toJSON(needs) }}"
-             echo "${{ toJSON(inputs) }}"
+  learning_contexts:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: print github contexts
+        run: echo "${{ toJSON(github) }}"
+      - name: print env contexts
+        run:  echo "${{ toJSON(env) }}"
+      - name: print  vars contexts
+        run:  echo "${{ toJSON(vars) }}"
+      - name: print job contexts
+        run:  echo "${{ toJSON(job) }}"
+      - name: print steps contexts
+        run:  echo "${{ toJSON(steps) }}"
+      - name: print runner contexts
+        run:  echo "${{ toJSON(runner) }}"
+      - name: print secrets contexts
+        run:  echo "${{ toJSON(secrets) }}"
+      - name: print strategy contexts
+        run:  echo "${{ toJSON(strategy) }}"
+      - name: print matrix contexts
+        run:  echo "${{ toJSON(matrix) }}"
+      - name: print needs contexts
+        run:  echo "${{ toJSON(needs) }}"
+      - name: print inputs contexts
+        run:  echo "${{ toJSON(inputs) }}"
              
 
