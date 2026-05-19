@@ -1,0 +1,23 @@
+---
+name: variable practice
+
+on:
+  workflow_dispatch:
+    
+
+env:
+  WORKFLOW_VAR: this is workflow level variable
+
+jobs:
+  learning_variables:
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
+      - name: print_variables
+        run: |
+              echo "ORG = ${{ vars.ORG_VAR }}"
+              echo "REPO = ${{vars.REPO_VAR}}"
+              echo "ENV = ${{vars.ENV_VAR}}"
+              echo "WORKFLOW = $WORKFLOW_VAR"
+
